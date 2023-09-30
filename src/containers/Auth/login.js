@@ -7,9 +7,30 @@ import "../Auth/login.scss";
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.btnLogin = React.createRef();
+    this.state = {
+      username: "",
+      password: "",
+      isShowPassword: false,
+    };
   }
 
+  handleOnchangeUsernameInput = (event) => {
+    this.setState({
+      username: event.target.value,
+    });
+  };
+  handleOnchangePasswordInput = (event) => {
+    this.setState({
+      password: event.target.value,
+    });
+  };
+  handleLogin = () => {};
+
+  handleShowHidePassword = () => {
+    this.setState({
+      isShowPassword:!this.state.isShowPassword
+    })
+  };
   render() {
     return (
       <div className="login-backgroung">
@@ -22,21 +43,37 @@ class Login extends Component {
                 type="text"
                 className="form-control"
                 placeholder="Enter Your Username"
+                value={this.state.username}
+                onChange={(event) => this.handleOnchangeUsernameInput(event)}
               />
             </div>
             <div className="col-12 form-group login-input">
               <label>Password:</label>
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Enter Your Password"
-              />
+              <div className="custom-password">
+                <input
+                  type={this.state.isShowPassword?"text":"password"}
+                  className="form-control"
+                  placeholder="Enter Your Password"
+                  onChange={(event) => this.handleOnchangePasswordInput(event)}
+                />
+                <i
+                  className={this.state.isShowPassword===true?'far fa-eye':'far fa-eye-slash'}
+                  onClick={() => {
+                    this.handleShowHidePassword();
+                  }}></i>
+              </div>
             </div>
             <div className="col-12 login-button">
-              <button className="btn-login">Login</button>
+              <button
+                className="btn-login"
+                onClick={() => {
+                  this.handleLogin();
+                }}>
+                Login
+              </button>
             </div>
-            <div className="col-12">
-              <span className="forgot-password">Forgot your password?</span>
+            <div className="col-12 forgot-password">
+              <span className="">Forgot your password?</span>
             </div>
             <div className="col-12 text-center mt-3">
               <span className="text-other-login">Or Login with</span>

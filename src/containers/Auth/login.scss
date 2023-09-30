@@ -5,23 +5,40 @@
     background: linear-gradient(135deg, rgba(34,193,195,1) 0%,  rgba(253,187,45,1) 100%);
     font-family: "work sans";
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .login-container{
-        width: 400px;
-        height: 100%;
-        margin: 0 auto;
+        width: 380px;
+        height: 60%;
+        margin: auto auto;
         border-radius: 10px;
         background-color: white;
         .login-content{
             padding:10px;
             .text-login{
                 padding-top:10px;
-                text-align: center;
-                font-weight: 600px;
                 font-size: 24px;
+                font-weight: 500;
             }
             .login-input {
                 margin: 7px auto;
                 width: 80%;
+                .custom-password {
+                    position: relative;
+                    i.far.fa-eye {
+                        position: absolute;
+                        right: 10px;
+                        top: 10px;
+                        cursor: pointer;
+                    }
+                    i.far.fa-eye-slash{
+                        position: absolute;
+                        right: 10px;
+                        top: 10px;
+                        cursor: pointer;
+                    }
+                }
             }
             .login-button{
                 display: flex;
@@ -38,11 +55,14 @@
                     background: linear-gradient(135deg, #22c1c3 0%, #fdbb2d 100%);
                     color: white;
                     
-                }
-                .forgot-password{
-                    font-size: 12px;
-                }
-               
+                }               
+            }
+            .forgot-password{
+                font-size: 13px;
+                width: 70%;
+                font-weight: 800;
+                margin: 10px auto;
+                padding: 0;
             }
             .social-login{
                 display: flex;
@@ -61,6 +81,7 @@
                     align-items: center;
                     justify-content: center;
                     margin-right: 5px;
+                    cursor: pointer;
                 }
                 .facebook{
                     background-color: rgb(23, 27, 209);
@@ -74,6 +95,7 @@
                     align-items: center;
                     justify-content: center;
                     margin-left: 10px;
+                    cursor: pointer;
                 }
             }
         }
