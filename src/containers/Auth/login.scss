@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600|Work+Sans:400,500,600,700&display=swap');
+
+.login-backgroung{
+    background: rgb(34,193,195);
+    background: linear-gradient(135deg, rgba(34,193,195,1) 0%,  rgba(253,187,45,1) 100%);
+    font-family: "work sans";
+    height: 100vh;
+    .login-container{
+        width: 400px;
+        height: 100%;
+        margin: 0 auto;
+        border-radius: 10px;
+        background-color: white;
+        .login-content{
+            padding:10px;
+            .text-login{
+                padding-top:10px;
+                text-align: center;
+                font-weight: 600px;
+                font-size: 24px;
+            }
+            .login-input {
+                margin: 7px auto;
+                width: 80%;
+            }
+            .login-button{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                .btn-login {
+                    width: 80%;
+                    height: 40px;
+                    outline: none;
+                    border: none;
+                    font-weight: 700;
+                    border-radius: 25px;
+                    margin: 10px auto;
+                    background: linear-gradient(135deg, #22c1c3 0%, #fdbb2d 100%);
+                    color: white;
+                    
+                }
+                .forgot-password{
+                    font-size: 12px;
+                }
+               
+            }
+            .social-login{
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+                
+                .google{
+                    background-color: red;
+                    border-radius: 51px;
+                    font-size: 30px;
+                    color: white;
+                    height: 50px;
+                    width: 50px;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 5px;
+                }
+                .facebook{
+                    background-color: rgb(23, 27, 209);
+                    border-radius: 51px;
+                    font-size: 30px;
+                    color: white;
+                    height: 50px;
+                    width: 50px;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
