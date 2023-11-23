@@ -6,24 +6,39 @@ class ModalUser extends Component {
 
   componentDidMount() {}
 
+  toggle = () => {
+    this.props.toggleFromParent();
+  };
+
   render() {
+    console.log(this.props);
     return (
-      <Modal isOpen={true} toggle={true} {...args}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+      <Modal
+        isOpen={this.props.isOpen}
+        toggle={() => this.toggle()}
+        className={"abcclassName"}
+        size="lg"
+        centered>
+        <ModalHeader toggle={() => this.toggle()}>Create New User</ModalHeader>
         <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          <div className="container">
+            <div className="row">
+              <div className="col-6 form-group">
+                <label htmlFor="">Email</label>
+                <input type="text" name="" id="" />
+              </div>
+              <div className="col-6 form-group">
+                <label htmlFor="">Password</label>
+                <input type="text" name="" id="" />
+              </div>
+            </div>
+          </div>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>
+          <Button color="primary" onClick={() => this.toggle()}>
             Do Something
           </Button>{" "}
-          <Button color="secondary" onClick={toggle}>
+          <Button color="secondary" onClick={() => this.toggle()}>
             Cancel
           </Button>
         </ModalFooter>

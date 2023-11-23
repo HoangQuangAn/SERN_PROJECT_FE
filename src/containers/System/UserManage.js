@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./UserManager.scss";
 import { getAllUser } from "../../services/userService";
+import ModalUser from "./ModalUser";
 class UserManage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       arrUser: [],
+      isOpenModalUser: false,
     };
   }
   state = {};
@@ -21,12 +23,25 @@ class UserManage extends Component {
   }
 
   handleAddNewUser = () => {
-    alert("click me");
+    this.setState({
+      isOpenModalUser: true,
+    });
+  };
+
+  toggle = () => {
+    this.setState({
+      isOpenModalUser: !this.state.isOpenModalUser,
+    });
   };
   render() {
     let arrUser = this.state.arrUser;
     return (
       <div className="users-container">
+        <ModalUser
+          isOpen={this.state.isOpenModalUser}
+          test={"abc"}
+          toggleFromParent={this.toggle}
+        />
         <div className="title text-center">Manage User With Hoang Quang An</div>
         <div className="mx-1">
           <button
