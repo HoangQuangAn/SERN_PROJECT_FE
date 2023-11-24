@@ -16,21 +16,35 @@ class ModalUser extends Component {
       <Modal
         isOpen={this.props.isOpen}
         toggle={() => this.toggle()}
-        className={"abcclassName"}
+        className={"modal-user-container"}
         size="lg"
         centered>
         <ModalHeader toggle={() => this.toggle()}>Create New User</ModalHeader>
         <ModalBody>
-          <div className="container">
-            <div className="row">
-              <div className="col-6 form-group">
-                <label htmlFor="">Email</label>
-                <input type="text" name="" id="" />
-              </div>
-              <div className="col-6 form-group">
-                <label htmlFor="">Password</label>
-                <input type="text" name="" id="" />
-              </div>
+          <div className="modal-user-body">
+            <div className="input-container">
+              <label htmlFor="">Email</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div className="input-container">
+              <label htmlFor="">Password</label>
+              <input type="text" name="" id="" />
+            </div>
+          </div>
+          <div className="modal-user-body">
+            <div className="input-container">
+              <label htmlFor="">First Name</label>
+              <input type="text" name="" id="" />
+            </div>
+            <div className="input-container">
+              <label htmlFor="">Last Name</label>
+              <input type="text" name="" id="" />
+            </div>
+          </div>
+          <div className="modal-user-body">
+            <div className="input-container">
+              <label htmlFor="">Address</label>
+              <input type="text" name="" id="" />
             </div>
           </div>
         </ModalBody>
