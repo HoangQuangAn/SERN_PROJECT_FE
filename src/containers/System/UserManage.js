@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./UserManager.scss";
-import { getAllUser } from "../../services/userService";
+import { getAllUser, createNewUserService } from "../../services/userService";
 import ModalUser from "./ModalUser";
 class UserManage extends Component {
   constructor(props) {
@@ -14,13 +14,17 @@ class UserManage extends Component {
   state = {};
 
   async componentDidMount() {
+    await this.getAllUserFromReact();
+  }
+
+  getAllUserFromReact = async () => {
     let res = await getAllUser("ALL");
     if (res && res.errCode === 0) {
       this.setState({
         arrUser: res.users,
       });
     }
-  }
+  };
 
   handleAddNewUser = () => {
     this.setState({
@@ -33,6 +37,19 @@ class UserManage extends Component {
       isOpenModalUser: !this.state.isOpenModalUser,
     });
   };
+
+  createNewUser = async (data) => {
+    try {
+      let res = await createNewUserService(data);
+      if (res.errCode === 0) {
+        alert(res.message);
+        await this.getAllUserFromReact();
+        this.toggle();
+      }
+    } catch (error) {
+      console.log("🚀 ~ file: UserManage.js:45 ~ UserManage ~ error:", error);
+    }
+  };
   render() {
     let arrUser = this.state.arrUser;
     return (
@@ -41,6 +58,7 @@ class UserManage extends Component {
           isOpen={this.state.isOpenModalUser}
           test={"abc"}
           toggleFromParent={this.toggle}
+          createNewUser={this.createNewUser}
         />
         <div className="title text-center">Manage User With Hoang Quang An</div>
         <div className="mx-1">

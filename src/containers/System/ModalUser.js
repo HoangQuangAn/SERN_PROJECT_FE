@@ -25,7 +25,25 @@ class ModalUser extends Component {
     this.setState({
       [name]: value,
     });
-    console.log(this.state);
+  };
+
+  checkValidateInput = () => {
+    let isValid = true;
+    let arrInput = ["email", "password", "firstName", "lastName", "address"];
+    for (let i = 0; i < arrInput.length; i++) {
+      if (!this.state[arrInput[i]]) {
+        isValid = false;
+        alert("Missing Parameter " + arrInput[i]);
+        break;
+      }
+    }
+    return isValid;
+  };
+  handleAddNewUser = () => {
+    let isValid = this.checkValidateInput();
+    if (isValid) {
+      this.props.createNewUser(this.state);
+    }
   };
 
   render() {
@@ -48,6 +66,7 @@ class ModalUser extends Component {
                 onChange={(event) => {
                   this.handleOnChangeInput(event);
                 }}
+                value={this.state.email}
               />
             </div>
             <div className="input-container">
@@ -59,6 +78,7 @@ class ModalUser extends Component {
                 onChange={(event) => {
                   this.handleOnChangeInput(event);
                 }}
+                value={this.state.password}
               />
             </div>
           </div>
@@ -72,6 +92,7 @@ class ModalUser extends Component {
                 onChange={(event) => {
                   this.handleOnChangeInput(event);
                 }}
+                value={this.state.firstName}
               />
             </div>
             <div className="input-container">
@@ -83,6 +104,7 @@ class ModalUser extends Component {
                 onChange={(event) => {
                   this.handleOnChangeInput(event);
                 }}
+                value={this.state.lastName}
               />
             </div>
           </div>
@@ -96,12 +118,13 @@ class ModalUser extends Component {
                 onChange={(event) => {
                   this.handleOnChangeInput(event);
                 }}
+                value={this.state.address}
               />
             </div>
           </div>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={() => this.toggle()}>
+          <Button color="primary" onClick={() => this.handleAddNewUser()}>
             Add new
           </Button>{" "}
           <Button color="secondary" onClick={() => this.toggle()}>
