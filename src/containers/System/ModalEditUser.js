@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
-import { emitter } from "../../utils/emitter";
 import _ from "lodash";
 class ModalEditUser extends Component {
   constructor(props) {

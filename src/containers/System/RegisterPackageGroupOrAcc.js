@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 class RegisterPackageGroupOrAcc extends Component {
 
@@ -7,8 +6,6 @@ class RegisterPackageGroupOrAcc extends Component {
         super(props);
 
     }
-
-
 
     render() {
         return (
